@@ -22,7 +22,8 @@ function App() {
           const episodeDetails = {
             title: episode.children[0].textContent,
             pubDate: episode.children[2].textContent,
-            link: episode.children[8].attributes[2].nodeValue
+            link: episode.children[8].attributes[2].nodeValue,
+            key: episode.children[3].textContent
           };
           episodeArray.push(episodeDetails);
         });
@@ -35,7 +36,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {episodes && episodes.map((episode) => <Podcast episode={episode} />)}
+      {episodes &&
+        episodes.map((episode) => (
+          <Podcast episode={episode} key={episode.key} />
+        ))}
     </div>
   );
 }
