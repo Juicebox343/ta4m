@@ -35,8 +35,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <div className='container'>
+      <Header latestEpisode={episodes.length > 1 && episodes[0]}/>
+      <div className='container' id='episodes'>
         <NavBar />
         <header className='sidebar'>
           <img src="./4MicsLogo.png"/>
