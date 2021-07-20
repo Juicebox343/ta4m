@@ -1,11 +1,8 @@
 import { useEffect, useState } from 'react';
 import Header from './Components/Header';
-
 import Podcast from './Components/Podcast';
-import SidePiece from './Components/SidePiece';
-import MainContent from './Components/MainContent';
 // import AuthContextProvider from './Contexts/AuthContext';
-// import NavBar from './Components/NavBar';
+import NavBar from './Components/NavBar';
 
 
 function App() {
@@ -39,11 +36,23 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <NavBar />
-      {episodes &&
-        episodes.map((episode) => (
-          <Podcast episode={episode} key={episode.key} />
-        ))}
+      <div className='container'>
+        <NavBar />
+        <header className='sidebar'>
+          <img src="./4MicsLogo.png"/>
+          <p>There Are Four Mics is a weekly podcast dedicated to group discussion of Star Trek.</p>
+          <p>Join your hosts as they make their way through the Star Trek franchise episode by episode, movie by movie, in stardate order. Grab a beer and join us as we talk about the episodes we love and the occasional episode we love to hate.
+  </p>
+        </header>
+    
+        <main className='post-index'>        
+          {episodes &&
+            episodes.map((episode) => (
+              <Podcast episode={episode} key={episode.key} />
+            ))}
+        </main>
+      </div>
+     
     </div>
   );
 }
