@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import Header from './Components/Header';
-import Podcast from './Components/Podcast';
 
+import Podcast from './Components/Podcast';
+import SidePiece from './Components/SidePiece';
+import MainContent from './Components/MainContent';
 // import AuthContextProvider from './Contexts/AuthContext';
 // import NavBar from './Components/NavBar';
+
 
 function App() {
   const [episodes, setEpisodes] = useState([]);
@@ -36,6 +39,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <NavBar />
       {episodes &&
         episodes.map((episode) => (
           <Podcast episode={episode} key={episode.key} />

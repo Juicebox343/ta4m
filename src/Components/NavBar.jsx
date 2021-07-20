@@ -23,7 +23,24 @@ const NavBar = () => {
     );
   };
 
-  return <nav>{user ? isLoggedIn() : isLoggedOut()}</nav>;
+  return ( 
+    <nav>
+      <div className='header-top'>
+        <div className='blue-bar x1'></div>
+        <h1>There Are Four Mics</h1>
+        <div className='blue-bar x3'></div>
+        <div className='blue-bar x5'></div>
+        <div className='orange-bar x2'></div>
+        <div className='x2'></div>
+        <div className='blue-bar x1'></div>
+      </div>
+      <div className='header-bottom'>
+        <div className='orange-bar x3'></div>
+        <h2 className='page-title'>Archives</h2>
+        <div className='orange-bar x9'></div>
+      </div>
+    </nav>
+  );
 };
 
 export default NavBar;
