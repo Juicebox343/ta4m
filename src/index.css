@@ -3,13 +3,13 @@
 @font-face {
   font-family: 'Probert Bold';
   src: url('./fonts/probert_bold-webfont.woff2') format('woff2'),
-       url('./fonts/probert_bold-webfont.woff') format('woff');
+    url('./fonts/probert_bold-webfont.woff') format('woff');
 }
 
-@font-face{  
+@font-face {
   font-family: 'Probert';
   src: url('./fonts/probert-webfont.woff2') format('woff2'),
-       url('./fonts/probert-webfont.woff') format('woff');
+    url('./fonts/probert-webfont.woff') format('woff');
 }
 
 /* Variables */
@@ -76,6 +76,7 @@ a {
   height: 100vh;
 }
 
+
 .hero .banner{
   display: flex;
   justify-content: center;
@@ -87,7 +88,7 @@ a {
   margin-bottom: 4rem;
 }
 
-.hero .titles{
+.hero .titles {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -107,7 +108,7 @@ a {
   font-size: 4rem;
 }
 
-.titles .seperator {
+.titles .separator {
   display: block;
   width: 40%;
   height: 2px;

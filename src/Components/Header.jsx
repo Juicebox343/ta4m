@@ -7,7 +7,7 @@ const Header = () => {
         </div>
         <div className="titles">
           <h1>There Are Four Mics</h1>
-          <span className="seperator"></span>
+          <span className="separator"></span>
           <span>A Star Trek Podcast</span>
         </div>
       </header>

@@ -1,3 +1,5 @@
+// None of this is actually being used but serves as a monument to authentication working
+
 import { useContext } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
 const NavBar = () => {
