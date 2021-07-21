@@ -410,8 +410,8 @@ a {
   display: block;
   width: 100%;
   height: 3px;
+  margin-bottom: 1rem; 
   background-color: var(--highlight);
-  box-shadow: 0 0 8px #3437386c;
 }
 
 .post-container{
@@ -450,9 +450,7 @@ a {
 }
 
 .post-brief{
-  height: 50px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
 }
 
 
