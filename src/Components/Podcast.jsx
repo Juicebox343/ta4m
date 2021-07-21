@@ -1,8 +1,11 @@
+import { Link } from "react-router-dom";
 const Podcast = ({ episode }) => {
   return (
     <article className="episode">
       <header>
-        <h3>{episode.title}</h3>
+        <Link to={`/posts/${episode.key}`}>
+          <h3>{episode.title}</h3>
+        </Link>
       </header>
       <p>
         Podcast Release Date: <time>{episode.pubDate}</time>
