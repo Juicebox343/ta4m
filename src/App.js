@@ -3,6 +3,8 @@ import Header from './Components/Header';
 import NavBar from './Components/NavBar';
 import Podcast from './Components/Podcast';
 import Sidebar from './Components/Sidebar';
+import TitleBar from './Components/TitleBar';
+
 
 function App() {
   const [episodes, setEpisodes] = useState([]);
@@ -37,11 +39,20 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <div className="container">
+      <Header latestEpisode={episodes.length > 1 && episodes[0]}/>
+      <div className='container' id='episodes'>
+        <TitleBar />
         <NavBar />
-        <Sidebar />
-        <main className="post-index">
+        <div className='orange-bar lcars-fixed'>85</div>
+        <header className='sidebar'>
+          
+          <img src="./4MicsLogo.png"/>
+          <p>There Are Four Mics is a weekly podcast dedicated to group discussion of Star Trek.</p>
+          <p>Join your hosts as they make their way through the Star Trek franchise episode by episode, movie by movie, in stardate order. Grab a beer and join us as we talk about the episodes we love and the occasional episode we love to hate.
+  </p>
+        </header>
+    
+        <main className='post-index'>        
           {episodes &&
             episodes.map((episode) => (
               <Podcast episode={episode} key={episode.key} />
