@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import Header from './Components/Header';
 import NavBar from './Components/NavBar';
 import Podcast from './Components/Podcast';
-// import AuthContextProvider from './Contexts/AuthContext';
+import Sidebar from './Components/Sidebar';
 import TitleBar from './Components/TitleBar';
 
 
 function App() {
   const [episodes, setEpisodes] = useState([]);
 
-  // Sample and complicated approach on how to get all the episode data
+  // Sample and possibly unnecessarily complicated approach on how to get all the episode data
   const fetchEpisodes = () => {
     const ta4mRSS = 'https://therearefourmics.libsyn.com/rss';
     const parser = new DOMParser();
@@ -23,8 +23,11 @@ function App() {
           const episodeDetails = {
             title: episode.children[0].textContent,
             pubDate: episode.children[2].textContent,
+            key: episode.children[3].textContent,
+            briefDescription: episode.children[13].textContent,
+            fullDescription: episode.children[6].textContent,
             link: episode.children[8].attributes[2].nodeValue,
-            key: episode.children[3].textContent
+            length: episode.children[9].textContent
           };
           episodeArray.push(episodeDetails);
         });
@@ -56,7 +59,6 @@ function App() {
             ))}
         </main>
       </div>
-     
     </div>
   );
 }
