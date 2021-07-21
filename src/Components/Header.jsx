@@ -21,7 +21,6 @@ const Header = (props) => {
             <button className="fake-play" onClick={() => setIsEzri(!isEzri)}></button>
             <span className="fake-title">{props.latestEpisode.title}</span>
           </div>
-
           <div className='read-more'>
             <a href='/#episodes'>Listen</a>
           </div>
