@@ -20,7 +20,7 @@
   --episode-font: 'Antonio', 'Lato', sans-serif;
   --main-font: 'Lato', sans-serif;
   --bg-color: #242842;
-  --font-color: #ffffff;
+  --font-color: #f0f0f0;
   --good-orange: #b58d02;
   --good-blue: #2a6087;
   --highlight: #617da6;
@@ -393,6 +393,7 @@ a {
   grid-column: 2 / 3;
   width: 95%;
   display: flex;
+  margin-top: 1rem;
 }
 
 .nav-login {
@@ -402,62 +403,93 @@ a {
 
 .post{
   margin: 1rem;
-  padding-bottom: 1rem;
-  display: flex;
-  height: 400px;
+}
+
+.post:before{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  margin-bottom: 1rem; 
+  background-color: var(--highlight);
 }
 
 .post-container{
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: space-evenly;
 }
 
-.post:nth-of-type(even) .post-container{
-  flex-direction: row-reverse;
+.post:nth-of-type(even) .post-details{
+  grid-column: 2 / 3;
+  padding-right: 0;
+  padding-left: 2rem;
+}
+
+
+.post-wrapper{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 2rem 0;
 }
 
 .post-details{
-  width: 50%;
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  padding-right: 2rem;
+  padding-left: 0;
 }
 
-/* .post-details:before{
-  content: '';
-  display: block;
-  width: 112%;
-  height: 3px;
-  transform: translateX(-45px);
-  background-color: var(--highlight);
-  box-shadow: 0 0 8px #3437386c;
-} */
+.post-details header h3{
+  margin: 0;
+}
 
 .post-details p{
-  padding: 0 1rem;
+  
+}
+
+.post-brief{
+
 }
 
 
 .post-image{
-
-  width: 505px;
-  display: block;
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
   overflow: hidden;
+  height: 300px;
+  background-color: rgb(24, 24, 53);
+  display: flex;
+  justify-content: center;
 }
 
+.post:nth-of-type(even) .post-image{
+  grid-column: 1 / 2;
+}
+
+
+
 .post-image img{
-  width: 100%;
+  object-fit: contain;
 }
 
 .post-left, .post-right{
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
+
+  padding: 1.75rem 0;
+}
+
+.post-left{
   padding-right: 1rem;
-  height: 293.44px;
-  transform: translateY(15px);
 }
 
 .post-right{
-  transform: translateX(60px);
+  padding-left: 1rem;
 }
+
 
 .post-left > div, .post-right > div{
   width: 30px;
@@ -477,7 +509,7 @@ a {
 }
 
 .post summary{
-  color: white;
+  color: var(--font-color);
   font-family: var(--main-font);
 }
 
