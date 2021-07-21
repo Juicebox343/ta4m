@@ -42,8 +42,7 @@ body {
 /* Typography */
 
 h1,
-h2,
-h3 {
+h2{
   text-transform: uppercase;
 }
 
@@ -51,8 +50,7 @@ h1 {
   font-family: var(--title-font);
 }
 
-h2,
-h3 {
+h2{
   font-family: var(--heading-font);
 }
 
@@ -155,11 +153,15 @@ a {
   grid-row: 1 / 2;
   grid-column: 1 / 3;
   display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
+.header-top .narrow-bar .blue-bar, .header-top .narrow-bar .orange-bar{
+  height: 5px;
+}
+
 .header-top div{
-  width: 100%;
   display: flex;
   flex-wrap: nowrap;
 }
@@ -171,6 +173,12 @@ a {
   font-size: 2.5rem;
   flex-shrink: 0;
   line-height: 40px;
+}
+
+.narrow-bar{
+  display: block;
+  height: 10px;
+  margin-top: .5rem;
 }
 
 .page-title {
@@ -348,7 +356,7 @@ a {
 
 .container {
   display: grid;
-  grid-template-rows: 42.5px 42.5px auto;
+  grid-template-rows: 64px 42.5px auto;
   grid-template-columns: 1fr 3fr;
   align-items: start;
   margin-top: 1rem;
@@ -380,10 +388,11 @@ a {
 
 /* main */
 
-
 .post-index{
   grid-row: 3 / 4;
   grid-column: 2 / 3;
+  width: 95%;
+  display: flex;
 }
 
 .nav-login {
@@ -391,15 +400,86 @@ a {
   text-align: center;
 }
 
-.episode {
+.post{
   margin: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  height: 400px;
 }
 
-.episode h3 {
+.post-container{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.post:nth-of-type(even) .post-container{
+  flex-direction: row-reverse;
+}
+
+.post-details{
+  width: 50%;
+}
+
+/* .post-details:before{
+  content: '';
+  display: block;
+  width: 112%;
+  height: 3px;
+  transform: translateX(-45px);
+  background-color: var(--highlight);
+  box-shadow: 0 0 8px #3437386c;
+} */
+
+.post-details p{
+  padding: 0 1rem;
+}
+
+
+.post-image{
+
+  width: 505px;
+  display: block;
+  overflow: hidden;
+}
+
+.post-image img{
+  width: 100%;
+}
+
+.post-left, .post-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-right: 1rem;
+  height: 293.44px;
+  transform: translateY(15px);
+}
+
+.post-right{
+  transform: translateX(60px);
+}
+
+.post-left > div, .post-right > div{
+  width: 30px;
+  height: 3px;
+  background-color: var(--highlight);
+}
+
+.post h3 {
   font-family: var(--episode-font);
+  font-weight: 100;
   letter-spacing: 2px;
+  font-size: 1.5rem;
 }
 
+.post p{
+  line-height: 150%;
+}
+
+.post summary{
+  color: white;
+  font-family: var(--main-font);
+}
 
 /* Misc */
 

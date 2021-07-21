@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 const Podcast = ({ episode }) => {
+ 
   if (episode) {
     return (
       <article className="episode">
