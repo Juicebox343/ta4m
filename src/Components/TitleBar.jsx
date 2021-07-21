@@ -42,7 +42,8 @@ const TitleBar = () => {
         <div className='narrow-bar'>
           <div className='blue-bar x8'></div>
           <div className='orange-bar x2'></div>
-          <div className='blue-bar x4'></div>
+          <div className='blue-bar x4'></div> 
+          
         </div>
       </header>
   );
