@@ -10,4 +10,4 @@ No. But making things is fun, so we want to make a thing. And transitioning away
 
 ### What can I learn from your page?
 
-Not much! We're just making a page for our Star Trek podcast, but you're welcome to look around.
+Not much! We're just making a page for our Star Trek podcast, but you're more than welcome to look around.
