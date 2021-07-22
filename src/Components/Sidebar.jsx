@@ -1,5 +1,7 @@
 const Sidebar = () => {
     return (
+      <>
+      <div className="orange-bar lcars-fixed">85</div>
         <header className="sidebar">
           <img src="./4MicsLogo.png" alt="starfleet command logo with a microphone instead of the insignia" />
           <p>
@@ -13,6 +15,7 @@ const Sidebar = () => {
             the occasional episode we love to hate.
           </p>
         </header>
+        </>
     )
 }
 
