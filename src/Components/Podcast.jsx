@@ -1,6 +1,20 @@
 const Podcast = ({ episode }) => {
+
+
+  const fullDesc = episode.fullDescription;
+
+  
+  const regExpression = /Canon Date: (.*) </
+  // const regEx = (text) => {
+    
+  //   return regExpression.exec(text)
+  // }
+  
+  // const sanitizedDate = regExpression.exec(episode.fullDescription)[1].replace( /(<([^>]+)>)/ig, '');
+
   return (
     <article className="post">
+      <span className='stardate'>{episode.fullDescription.length > 0 && regExpression.exec(episode.fullDescription) && regExpression.exec(episode.fullDescription)[1].replace( /(<([^>]+)>)/ig, '')}</span>
        <div className='post-wrapper'>
         <div className='post-left'>
           <div></div><div></div><div></div><div></div>
