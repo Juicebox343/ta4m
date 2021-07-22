@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 const Podcast = ({ episode }) => {
 
   // const fullDesc = episode.fullDescription;
@@ -11,8 +12,6 @@ const Podcast = ({ episode }) => {
   
   // const sanitizedDate = regExpression.exec(episode.fullDescription)[1].replace( /(<([^>]+)>)/ig, '');
 if(episode){
-
-
   return (
     <article className="post">
       <span className='stardate'>{episode.fullDescription.length > 0 && regExpression.exec(episode.fullDescription) && regExpression.exec(episode.fullDescription)[1].replace( /(<([^>]+)>)/ig, '')}</span>
@@ -22,9 +21,9 @@ if(episode){
         </div>
       <div className='post-container'>
         <div className='post-details'>
-          <header>
-            <h3>{episode.title}</h3>
-          </header>
+        <Link to={`/posts/${episode.key}`}>
+          <h3>{episode.title}</h3>
+        </Link>
           {/* <p>
             Podcast Release Date: <time>{episode.pubDate}</time>
           </p>
