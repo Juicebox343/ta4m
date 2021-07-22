@@ -1,7 +1,6 @@
 const Podcast = ({ episode }) => {
 
-
-  const fullDesc = episode.fullDescription;
+  // const fullDesc = episode.fullDescription;
 
   
   const regExpression = /Canon Date: (.*) </
@@ -11,6 +10,8 @@ const Podcast = ({ episode }) => {
   // }
   
   // const sanitizedDate = regExpression.exec(episode.fullDescription)[1].replace( /(<([^>]+)>)/ig, '');
+if(episode){
+
 
   return (
     <article className="post">
@@ -48,6 +49,10 @@ const Podcast = ({ episode }) => {
       </div>
     </article>
   );
+}
+else{
+  return null;
+}
 };
 
 export default Podcast;
