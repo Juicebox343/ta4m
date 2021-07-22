@@ -3,7 +3,7 @@ const Sidebar = () => {
       <>
       <div className="orange-bar lcars-fixed">85</div>
         <header className="sidebar">
-          <img src="./4MicsLogo.png" alt="starfleet command logo with a microphone instead of the insignia" />
+          <img src="/4MicsLogo.png" alt="starfleet command logo with a microphone instead of the insignia" />
           <p>
             There Are Four Mics is a weekly podcast dedicated to group
             discussion of Star Trek.
