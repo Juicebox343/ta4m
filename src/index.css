@@ -375,6 +375,9 @@ a {
   align-items: center;
   font-size: 1.1rem;
   padding: 2rem;
+  background-color: #2d3250;
+  margin: 1rem .25rem;
+  height: 100%;
 }
 
 .sidebar p {
@@ -391,9 +394,9 @@ a {
 .post-index{
   grid-row: 3 / 4;
   grid-column: 2 / 3;
-  width: 95%;
+  width: 90%;
   display: flex;
-  margin-top: 1rem;
+  margin: 1.2rem auto 0;
 
 }
 
@@ -405,7 +408,10 @@ a {
 .post{
   margin: 5rem 1rem;
   position:relative;
+}
 
+.post:first-of-type{
+  margin: 0 1rem;
 }
 
 .post:before{
