@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from './Components/Header';
 import NavBar from './Components/NavBar';
 import Podcast from './Components/Podcast';
@@ -38,29 +38,29 @@ function App() {
   useEffect(fetchEpisodes, []);
 
   return (
-    <div className="App">
-      <Header latestEpisode={episodes.length > 1 && episodes[0]} />
-      <div className="container" id="episodes">
-        <TitleBar />
-        <NavBar />
-        <Sidebar />
-        <BrowserRouter>
+    <div className='App'>
+      <BrowserRouter>
+        <Header latestEpisode={episodes.length > 1 && episodes[0]} />
+        <div className='container' id='episodes'>
+          <TitleBar />
+          <NavBar />
+          <Sidebar />
           <Switch>
-            <Route exact path="/">
-              <main className="post-index">
-              <div className="index-left"></div>
-              <div>
-                {episodes &&
-                  episodes.map((episode) => (
-                    <Podcast episode={episode} key={episode.key} />
-                  ))}
-                  </div>
-                  <div className="index-right"></div>
+            <Route exact path='/'>
+              <main className='post-index'>
+                <div className='index-left'></div>
+                <div>
+                  {episodes &&
+                    episodes.map((episode) => (
+                      <Podcast episode={episode} key={episode.key} />
+                    ))}
+                </div>
+                <div className='index-right'></div>
               </main>
             </Route>
             <Route
               // Filters episode array to find podcast with ID matching the URL
-              path="/posts/:id"
+              path='/posts/:id'
               render={({ match }) => {
                 return (
                   <Podcast
@@ -74,8 +74,8 @@ function App() {
               }}
             ></Route>
           </Switch>
-        </BrowserRouter> 
-      </div>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
