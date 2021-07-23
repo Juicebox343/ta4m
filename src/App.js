@@ -5,6 +5,7 @@ import NavBar from './Components/NavBar';
 import Podcast from './Components/Podcast';
 import Sidebar from './Components/Sidebar';
 import TitleBar from './Components/TitleBar';
+import About from './Components/About';
 
 function App() {
   const [episodes, setEpisodes] = useState([]);
@@ -57,6 +58,17 @@ function App() {
                 </div>
                 <div className='index-right'></div>
               </main>
+            </Route>
+            <Route path='/about'>
+              <About />
+            </Route>
+            <Route path='/podcasts'>
+              <div>
+                {episodes &&
+                  episodes.map((episode) => (
+                    <Podcast episode={episode} key={episode.key} />
+                  ))}
+              </div>
             </Route>
             <Route
               // Filters episode array to find podcast with ID matching the URL
