@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Header from './Components/Header';
+import Landing from './Components/Landing';
 import NavBar from './Components/NavBar';
 import Podcast from './Components/Podcast';
 import Sidebar from './Components/Sidebar';
@@ -41,13 +41,15 @@ function App() {
   return (
     <div className='App'>
       <BrowserRouter>
-        <Header latestEpisode={episodes.length > 1 && episodes[0]} />
-        <div className='container' id='episodes'>
-          <TitleBar />
-          <NavBar />
-          <Sidebar />
-          <Switch>
-            <Route exact path='/'>
+        <Switch>
+          <Route exact path='/'>
+            <Landing latestEpisode={episodes.length > 1 && episodes[0]} />
+          </Route>
+          <div className='container' id='episodes'>
+            <TitleBar />
+            <NavBar />
+            <Sidebar />
+            <Route exact path='/home'>
               <main className='post-index'>
                 <div className='index-left'></div>
                 <div>
@@ -85,8 +87,8 @@ function App() {
                 );
               }}
             ></Route>
-          </Switch>
-        </div>
+          </div>
+        </Switch>
       </BrowserRouter>
     </div>
   );
