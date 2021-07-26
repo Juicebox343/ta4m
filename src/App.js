@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Landing from './Components/Landing';
-import NavBar from './Components/NavBar';
 import Podcast from './Components/Podcast';
-import Sidebar from './Components/Sidebar';
-import TitleBar from './Components/TitleBar';
 import About from './Components/About';
+import Home from './Components/Home';
 
 function App() {
   const [episodes, setEpisodes] = useState([]);
@@ -45,49 +43,30 @@ function App() {
           <Route exact path='/'>
             <Landing latestEpisode={episodes.length > 1 && episodes[0]} />
           </Route>
-          <div className='container' id='episodes'>
-            <TitleBar />
-            <NavBar />
-            <Sidebar />
-            <Route exact path='/home'>
-              <main className='post-index'>
-                <div className='index-left'></div>
-                <div>
-                  {episodes &&
-                    episodes.map((episode) => (
-                      <Podcast episode={episode} key={episode.key} />
-                    ))}
-                </div>
-                <div className='index-right'></div>
-              </main>
-            </Route>
-            <Route path='/about'>
-              <About />
-            </Route>
-            <Route path='/podcasts'>
-              <div>
-                {episodes &&
-                  episodes.map((episode) => (
-                    <Podcast episode={episode} key={episode.key} />
-                  ))}
-              </div>
-            </Route>
-            <Route
-              // Filters episode array to find podcast with ID matching the URL
-              path='/posts/:id'
-              render={({ match }) => {
-                return (
-                  <Podcast
-                    episode={
-                      episodes.filter(
-                        (episode) => episode.key === match.params.id
-                      )[0]
-                    }
-                  />
-                );
-              }}
-            ></Route>
-          </div>
+          <Route exact path='/home'>
+            <Home episodes={episodes} />
+          </Route>
+          <Route path='/about'>
+            <About />
+          </Route>
+          <Route path='/podcasts'>
+            <Home episodes={episodes} />
+          </Route>
+          <Route
+            // Filters episode array to find podcast with ID matching the URL
+            path='/posts/:id'
+            render={({ match }) => {
+              return (
+                <Podcast
+                  episode={
+                    episodes.filter(
+                      (episode) => episode.key === match.params.id
+                    )[0]
+                  }
+                />
+              );
+            }}
+          ></Route>
         </Switch>
       </BrowserRouter>
     </div>
