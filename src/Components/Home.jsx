@@ -1,6 +1,6 @@
 import TitleBar from './TitleBar';
 import NavBar from './NavBar';
-import Sidebar from './Sidebar';
+import SideBar from './SideBar';
 import Podcast from './Podcast';
 
 const Main = ({ episodes }) => {
@@ -9,7 +9,7 @@ const Main = ({ episodes }) => {
       <div className='container' id='episodes'>
         <TitleBar />
         <NavBar />
-        <Sidebar />
+        <SideBar />
         <main className='post-index'>
           <div className='index-left'></div>
           <div>

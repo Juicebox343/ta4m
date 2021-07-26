@@ -1,4 +1,4 @@
-const Sidebar = () => {
+const SideBar = () => {
     return (
       <>
       <div className="orange-bar lcars-fixed">85</div>
@@ -19,4 +19,4 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar;
+export default SideBar;
