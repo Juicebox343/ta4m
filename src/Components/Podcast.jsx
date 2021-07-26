@@ -1,15 +1,19 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const Podcast = ({ episode }) => {
   // const fullDesc = episode.fullDescription;
-
-  const regExpression = /Canon Date: (.*) </;
   // const regEx = (text) => {
-
   //   return regExpression.exec(text)
   // }
-
   // const sanitizedDate = regExpression.exec(episode.fullDescription)[1].replace( /(<([^>]+)>)/ig, '');
+
+  const regExpression = /Canon Date: (.*) </;
+
+  // Determines if individual post page is loaded or if it's the main list
+  let isDedicatedPage;
+  const { id } = useParams();
+  id ? (isDedicatedPage = true) : (isDedicatedPage = false);
+
   if (episode) {
     return (
       <>
@@ -30,9 +34,14 @@ const Podcast = ({ episode }) => {
             </div>
             <div className='post-container'>
               <div className='post-details'>
-                <Link to={`/posts/${episode.key}`}>
+                {/* If on individual podcast page, does not display link in the header */}
+                {isDedicatedPage ? (
                   <h3>{episode.title}</h3>
-                </Link>
+                ) : (
+                  <Link to={`/posts/${episode.key}`}>
+                    <h3>{episode.title}</h3>
+                  </Link>
+                )}
                 {/* <p>
             Podcast Release Date: <time>{episode.pubDate}</time>
           </p>
@@ -47,6 +56,14 @@ const Podcast = ({ episode }) => {
                   />
                 </details>
                 <a href={episode.link}>Listen here.</a>
+                {/* Displays home button if on dedicated podcast page */}
+                {isDedicatedPage ? (
+                  <div>
+                    <Link to='/home'>
+                      <button>Back to Main</button>
+                    </Link>
+                  </div>
+                ) : null}
               </div>
 
               <div className='post-image'>
