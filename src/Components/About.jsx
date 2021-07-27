@@ -1,14 +1,7 @@
-import TitleBar from './TitleBar';
-import SideBar from './SideBar';
-import NavBar from './NavBar';
-
 const About = () => {
   return (
     <>
       <div className='container' id='episodes'>
-        <TitleBar />
-        <NavBar />
-        <SideBar />
         <main>
           <p>
             There Are Four Mics is a weekly podcast dedicated to group

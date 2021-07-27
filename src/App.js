@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Landing from './Components/Landing';
-import About from './Components/About';
 import Home from './Components/Home';
 
 function App() {
@@ -42,29 +41,9 @@ function App() {
           <Route exact path='/'>
             <Landing latestEpisode={episodes.length > 1 && episodes[0]} />
           </Route>
-          <Route exact path='/home'>
-            {/* Temporarily only passing in podcast episodes because that's all we have at the moment */}
+          <Route path='/'>
             <Home episodes={episodes} />
           </Route>
-          <Route path='/about'>
-            <About />
-          </Route>
-          <Route path='/podcasts'>
-            <Home episodes={episodes} />
-          </Route>
-          <Route
-            // Filters episode array to find podcast with ID matching the URL
-            path='/posts/:id'
-            render={({ match }) => {
-              return (
-                <Home
-                  episodes={episodes.filter(
-                    (episode) => episode.key === match.params.id
-                  )}
-                />
-              );
-            }}
-          ></Route>
         </Switch>
       </BrowserRouter>
     </div>
