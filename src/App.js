@@ -6,6 +6,7 @@ import SideBar from './Components/SideBar';
 import NavBar from './Components/NavBar';
 import About from './Components/About';
 import Main from './Components/Main';
+import NotFound from './Components/NotFound';
 
 function App() {
   const [episodes, setEpisodes] = useState([]);
@@ -78,6 +79,7 @@ function App() {
                     );
                   }}
                 ></Route>
+                <Route component={NotFound} />
               </Switch>
             </div>
           </Route>
