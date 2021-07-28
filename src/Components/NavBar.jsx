@@ -5,7 +5,7 @@ const NavBar = () => {
       <ul>
         <div className='orange-bar x1 hide-me'>67</div>
         <li>
-          <NavLink to='archives'>
+          <NavLink to='/archives'>
             <input
               type='radio'
               name='postFilter'

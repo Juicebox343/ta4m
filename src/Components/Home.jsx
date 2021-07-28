@@ -1,28 +1,43 @@
+import { Switch, Route } from 'react-router-dom';
 import TitleBar from './TitleBar';
 import NavBar from './NavBar';
 import SideBar from './SideBar';
-import Podcast from './Podcast';
+import Main from './Main';
+import About from './About';
 
-const Main = ({ episodes }) => {
+const Home = ({ episodes }) => {
   return (
     <>
       <div className='container' id='episodes'>
         <TitleBar />
         <NavBar />
         <SideBar />
-        <main className='post-index'>
-          <div className='index-left'></div>
-          <div>
-            {episodes &&
-              episodes.map((episode) => (
-                <Podcast episode={episode} key={episode.key} />
-              ))}
-          </div>
-          <div className='index-right'></div>
-        </main>
+        <Switch>
+          <Route path='/home'>
+            <Main episodes={episodes} />
+          </Route>
+          <Route path='/about'>
+            <About />
+          </Route>
+          <Route path='/podcasts'>
+            <Main episodes={episodes} />
+          </Route>
+          <Route
+            path='/posts/:id'
+            render={({ match }) => {
+              return (
+                <Main
+                  episodes={episodes.filter(
+                    (episode) => episode.key === match.params.id
+                  )}
+                />
+              );
+            }}
+          ></Route>
+        </Switch>
       </div>
     </>
   );
 };
 
-export default Main;
+export default Home;
