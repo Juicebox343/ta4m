@@ -1,29 +1,35 @@
-import { Switch, Route } from 'react-router-dom';
-import TitleBar from './TitleBar';
-import NavBar from './NavBar';
-import SideBar from './SideBar';
-import Main from './Main';
-import About from './About';
+import { Switch, Route } from "react-router-dom";
+import TitleBar from "./TitleBar";
+import NavBar from "./NavBar";
+import SideBar from "./SideBar";
+import Main from "./Main";
+import About from "./About";
 
 const Home = ({ episodes }) => {
   return (
     <>
-      <div className='container' id='episodes'>
+      <div className="container" id="episodes">
         <TitleBar />
         <NavBar />
         <SideBar />
         <Switch>
-          <Route path='/home'>
+          <Route path="/archives">
+            <div>There are no archives. What are the archives.</div>
+          </Route>
+          <Route path="/articles">
+            <div>There are no articles.</div>
+          </Route>
+          <Route path="/home">
             <Main episodes={episodes} />
           </Route>
-          <Route path='/about'>
+          <Route path="/about">
             <About />
           </Route>
-          <Route path='/podcasts'>
+          <Route path="/podcasts">
             <Main episodes={episodes} />
           </Route>
           <Route
-            path='/posts/:id'
+            path="/posts/:id"
             render={({ match }) => {
               return (
                 <Main
