@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Landing from './Components/Landing';
-import TitleBar from './Components/TitleBar';
-import SideBar from './Components/SideBar';
-import NavBar from './Components/NavBar';
 import About from './Components/About';
+import Landing from './Components/Landing';
 import Main from './Components/Main';
+import NavBar from './Components/NavBar';
 import NotFound from './Components/NotFound';
+import SideBar from './Components/SideBar';
+import TitleBar from './Components/TitleBar';
 
 function App() {
   const [episodes, setEpisodes] = useState([]);
