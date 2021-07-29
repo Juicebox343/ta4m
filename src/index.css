@@ -602,6 +602,10 @@ div.orange-bar:nth-child(1){
 
 /* About */
 
+.about{
+  display: flex;
+  
+}
 
 
 .about h3{

@@ -8,7 +8,7 @@ const NavBar = () => {
         <div className='orange-bar x1 hide-me'>67</div>
         <li>
 
-          <NavLink to='home' className='page-title' activeClassName='current-page'>Archives</NavLink>
+          <NavLink to='home' className='page-title' activeClassName='current-page'>Home</NavLink>
         </li>
         <div className='orange-bar x1'>72</div>
         <li>
