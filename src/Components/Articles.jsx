@@ -1,20 +1,11 @@
-import React from 'react'
-import NavBar from './NavBar'
-import SideBar from './SideBar'
-import TitleBar from './TitleBar'
-
 const Articles = () => {
   return (
     <>
-    <div className='container' id='episodes'>
-      <TitleBar />
-      <NavBar/>
-      <SideBar />
       <main>
+        <h3>We ain't got no articles here yet okay.</h3>
       </main>
-    </div>
     </>
-  )
-}
+  );
+};
 
-export default Articles
+export default Articles;

@@ -54,19 +54,16 @@ function App() {
               <NavBar />
               <SideBar />
               <Switch>
-                <Route path='/archives'>
-                  <div>There are no archives. What are the archives.</div>
+                <Route exact path='/articles'>
+                  <Articles />
                 </Route>
-                <Route path='/articles'>
-                  <div>There are no articles.</div>
-                </Route>
-                <Route path='/home'>
+                <Route exact path='/home'>
                   <Main episodes={episodes} />
                 </Route>
-                <Route path='/about'>
+                <Route exact path='/about'>
                   <About />
                 </Route>
-                <Route path='/podcasts'>
+                <Route exact path='/podcasts'>
                   <Main episodes={episodes} />
                 </Route>
                 <Route
