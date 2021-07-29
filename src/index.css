@@ -44,6 +44,8 @@ body {
 h1,
 h2{
   text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 2rem;
 }
 
 h1 {
@@ -78,7 +80,7 @@ a {
 /* App */
 
 .App{
-  padding: 1rem;
+
 }
 
 /* Hero */
@@ -393,24 +395,23 @@ a {
 /* main */
 
 main{
-  animation-name: fadeMe;
+  animation-name: fadeMeUp;
   animation-duration: .2s;
   animation-timing-function: ease-in-out;
+  grid-row: 3 / 4;
+  grid-column: 2 / 3;
+  width: 90%;
+
+  margin: 1.2rem auto 0;
+
 }
 
-@keyframes fadeMe{
+@keyframes fadeMeUp{
   0%    {opacity: 0; transform: translateY(.2rem)}
   100%  {opacity: 1; transform: translateY(0)}
 }
 
-.post-index{
-  grid-row: 3 / 4;
-  grid-column: 2 / 3;
-  width: 90%;
-  display: flex;
-  margin: 1.2rem auto 0;
 
-}
 
 .nav-login {
   padding: 1em;
@@ -418,12 +419,13 @@ main{
 }
 
 .post{
-  margin: 5rem 1rem;
+  margin: 5rem 0;
   position:relative;
+  animation-name: fade
 }
 
 .post:first-of-type{
-  margin: 0 1rem;
+  margin: 0;
 }
 
 .post:before{
@@ -431,7 +433,6 @@ main{
   display: block;
   width: 100%;
   height: 3px;
-  margin-bottom: 1rem; 
   background-color: var(--highlight);
 }
 
@@ -440,7 +441,6 @@ main{
   display: block;
   width: 100%;
   height: 3px;
-  margin-bottom: 1rem; 
   background-color: var(--highlight);
 }
 
@@ -471,7 +471,7 @@ main{
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin: 2rem 0;
+  margin: 0;
 }
 
 .post-details{
@@ -485,13 +485,10 @@ main{
   margin: 0;
 }
 
-.post-details p{
-  
+.post-details a{
+  text-decoration: none;
 }
 
-.post-brief{
-
-}
 
 
 .post-image{
@@ -499,16 +496,14 @@ main{
   grid-column: 2 / 3;
   overflow: hidden;
   height: 300px;
-  background-color: rgb(24, 24, 53);
   display: flex;
-  justify-content: center;
+  justify-content: right;
 }
 
 .post:nth-of-type(even) .post-image{
   grid-column: 1 / 2;
+  justify-content: left;
 }
-
-
 
 .post-image img{
   object-fit: contain;
@@ -518,7 +513,6 @@ main{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   padding: 1.75rem 0;
 }
 
@@ -602,14 +596,104 @@ div.orange-bar:nth-child(1){
 
 /* About */
 
+
+
+#about h3{
+  font-family: var(--heading-font);
+  font-size: 2rem;
+}
+
 .crew{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+.crew li > * {
   margin: 0;
   padding: 0;
 }
 
 .crew li{
   list-style: none;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto ;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  width: 650px;
+  opacity: 0;
 }
+
+@keyframes fadeMeLeft{
+  0%    {opacity: 0; transform: translateX(-4rem)}
+  100%  {opacity: 1; transform: translateX(0)}
+}
+
+.crew-one li{
+  animation-name: fadeMeLeft;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.crew-two li{
+  animation-name: fadeMeLeft;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.crew-one li:nth-of-type(2){
+  animation-delay: 100ms;
+}
+
+.crew-one li:nth-of-type(3){
+  animation-delay: 200ms;
+}
+
+.crew-one li:nth-of-type(4){
+  animation-delay: 300ms;
+}
+
+.crew-two li:nth-of-type(2){
+  animation-delay: 400ms;
+}
+
+.crew-two li:nth-of-type(3){
+  animation-delay: 500ms;
+}
+
+
+
+.crew li h4{
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.crew li img{
+  grid-row: 2 / 4;
+  grid-column: 1 / 2;
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+}
+
+.crew li p{
+  grid-row: 3 / 4;
+  grid-column: 2 / 3;
+  line-height: 160%;
+  margin: 0;
+}
+
+
 
 @media screen and (max-width:1400px){
   .header-bottom .x9{
