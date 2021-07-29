@@ -1,8 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = (props) => {
+const Header = ({latestEpisode}) => {
+  const podcastPlayer = useRef();
   const [isEzri, setIsEzri] = useState(false);
+
+
+  const playPodcast = () => {
+    isEzri ? podcastPlayer.current.play() : podcastPlayer.current.pause();
+  }
+
+  useEffect(playPodcast, [isEzri])
 
   return (
     <>
@@ -22,11 +30,12 @@ const Header = (props) => {
         </div>
         <div>
           <div className='fake-player'>
+            <audio src={latestEpisode.link} ref={podcastPlayer} />
             <button
               className='fake-play'
               onClick={() => setIsEzri(!isEzri)}
             ></button>
-            <span className='fake-title'>{props.latestEpisode.title}</span>
+            <span className='fake-title'>{latestEpisode.title}</span>
           </div>
           <div className='read-more'>
             <Link to='/home'>Enter Site</Link>
