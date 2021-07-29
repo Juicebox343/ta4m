@@ -3,6 +3,7 @@ import Podcast from './Podcast'
 const Main = ({episodes}) => {
     return (
     <main className='post-index'>
+      <h2>Episodes</h2>
           <div className='index-left'></div>
           <div>
             {episodes &&

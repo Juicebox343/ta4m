@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import About from './Components/About';
-import Home from './Components/Home';
 import Articles from './Components/Articles';
 import Landing from './Components/Landing';
 import Main from './Components/Main';
