@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-const NavBar = (props) => {
+const NavBar = () => {
  
   return (
     <nav className='header-bottom'>
