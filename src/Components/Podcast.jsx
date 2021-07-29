@@ -57,7 +57,7 @@ const Podcast = ({ episode }) => {
               </div>
 
               <div className='post-image'>
-                <img src='/carpenter-street.jpg' alt={episode.title} />
+                <img src={episode.image || `/post-standin.webp`} alt={episode.title} />
               </div>
             </div>
 

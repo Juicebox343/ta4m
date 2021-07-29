@@ -30,8 +30,10 @@ function App() {
             briefDescription: episode.children[13].textContent,
             fullDescription: episode.children[6].textContent,
             link: episode.children[8].attributes[2].nodeValue,
-            length: episode.children[9].textContent
+            length: episode.children[9].textContent,
+            image: episode.children[6].textContent.slice((episode.children[6].textContent.indexOf('src= \"') + 6), (episode.children[6].textContent.includes('.jpg') ? (episode.children[6].textContent.indexOf('.jpg') +4) : episode.children[6].textContent.includes('.png') ? (episode.children[6].textContent.indexOf('.png') +4) : (episode.children[6].textContent.indexOf('.gif') +4)))
           };
+          console.log(episode)
           episodeArray.push(episodeDetails);
         });
         setEpisodes(episodeArray);
