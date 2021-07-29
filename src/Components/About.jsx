@@ -1,15 +1,6 @@
-import TitleBar from './TitleBar';
-import SideBar from './SideBar';
-import NavBar from './NavBar';
-
 const About = () => {
   return (
-    <>
-      <div className='container' id='about'>
-        <TitleBar />
-        <NavBar />
-        <SideBar />
-        <main>
+        <main className='about'>
           <h2>About</h2>
           <p>
             There Are Four Mics is a weekly podcast dedicated to group
@@ -54,12 +45,9 @@ const About = () => {
                 <h4>Anna</h4>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam maiores rerum, quisquam repellendus vero, deserunt quam eligendi incidunt voluptates error, veniam similique corporis laboriosam quae libero aliquid aut aperiam ab?</p>
               </li>
-
             </ul>
           </div>
         </main>
-      </div>
-    </>
   );
 };
 

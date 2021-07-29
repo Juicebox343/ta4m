@@ -1,9 +1,14 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Landing from './Components/Landing';
 import About from './Components/About';
 import Home from './Components/Home';
 import Articles from './Components/Articles';
+import Landing from './Components/Landing';
+import Main from './Components/Main';
+import NavBar from './Components/NavBar';
+import NotFound from './Components/NotFound';
+import SideBar from './Components/SideBar';
+import TitleBar from './Components/TitleBar';
 
 function App() {
   const [episodes, setEpisodes] = useState([]);
@@ -39,39 +44,50 @@ function App() {
 
   return (
     <div className='App'>
-        <BrowserRouter>
-          <Switch>
-            <Route exact path='/'>
-              <Landing latestEpisode={episodes.length > 1 && episodes[0]} />
-            </Route>
-            <Route exact path='/home'>
-              {/* Temporarily only passing in podcast episodes because that's all we have at the moment */}
-              <Home episodes={episodes}/>
-            </Route>
-            <Route path='/about'>
-              <About />
-            </Route>
-            <Route path='/podcasts'>
-              <Home episodes={episodes}/>
-            </Route>
-            <Route path='/articles'>
-              <Articles/>
-            </Route>
-            <Route
-              // Filters episode array to find podcast with ID matching the URL
-              path='/posts/:id'
-              render={({ match }) => {
-                return (
-                  <Home
-                    episodes={episodes.filter(
-                      (episode) => episode.key === match.params.id
-                    )}
-                  />
-                );
-              }}
-            ></Route>
-          </Switch>
-        </BrowserRouter>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/'>
+            <Landing latestEpisode={episodes.length > 1 && episodes[0]} />
+          </Route>
+          <Route path='/'>
+            <div className='container'>
+              <TitleBar />
+              <NavBar />
+              <SideBar />
+              <Switch>
+                <Route path='/archives'>
+                  <div>There are no archives. What are the archives.</div>
+                </Route>
+                <Route path='/articles'>
+                  <div>There are no articles.</div>
+                </Route>
+                <Route path='/home'>
+                  <Main episodes={episodes} />
+                </Route>
+                <Route path='/about'>
+                  <About />
+                </Route>
+                <Route path='/podcasts'>
+                  <Main episodes={episodes} />
+                </Route>
+                <Route
+                  path='/posts/:id'
+                  render={({ match }) => {
+                    return (
+                      <Main
+                        episodes={episodes.filter(
+                          (episode) => episode.key === match.params.id
+                        )}
+                      />
+                    );
+                  }}
+                ></Route>
+                <Route component={NotFound} />
+              </Switch>
+            </div>
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
