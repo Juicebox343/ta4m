@@ -1,11 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 
 const Podcast = ({ episode }) => {
-  // const fullDesc = episode.fullDescription;
-  // const regEx = (text) => {
-  //   return regExpression.exec(text)
-  // }
-  // const sanitizedDate = regExpression.exec(episode.fullDescription)[1].replace( /(<([^>]+)>)/ig, '');
 
   const regExpression = /Canon Date: (.*) </;
 
@@ -26,12 +21,7 @@ const Podcast = ({ episode }) => {
                 .replace(/(<([^>]+)>)/gi, '')}
           </span>
           <div className='post-wrapper'>
-            <div className='post-left'>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
+
             <div className='post-container'>
               <div className='post-details'>
                 {/* If on individual podcast page, does not display link in the header */}
@@ -67,16 +57,10 @@ const Podcast = ({ episode }) => {
               </div>
 
               <div className='post-image'>
-                <img src='/post-standin.webp' alt={episode.title} />
+                <img src='/carpenter-street.jpg' alt={episode.title} />
               </div>
             </div>
 
-            <div className='post-right'>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
           </div>
         </article>
       </>
