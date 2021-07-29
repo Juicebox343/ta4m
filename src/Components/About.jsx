@@ -22,6 +22,32 @@ const About = () => {
             Check out our newest show, Disco Night - A Star Trek Discovery
             Podcast.
           </p>
+          <div>
+            <h2>Crew Manifest</h2>
+            <ul className='crew'>
+              <li>
+                <h3>Jason</h3>
+                <p></p>
+              </li>
+              <li>
+                <h3>Joe</h3>
+                <p></p>
+              </li>
+              <li>
+                <h3>Chris</h3>
+                <p></p>
+              </li>
+              <li>
+                <h3>Josh</h3>
+                <p></p>
+              </li>
+              <li>
+                <h3>Anna</h3>
+                <p></p>
+              </li>
+
+            </ul>
+          </div>
         </main>
       </div>
     </>
