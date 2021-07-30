@@ -38,7 +38,7 @@ function App() {
             link: episode.children[8].attributes[2].nodeValue,
             length: episode.children[9].textContent,
             image: episode.children[6].textContent.slice(
-              episode.children[6].textContent.indexOf('src= "') + 6,
+              episode.children[6].textContent.indexOf('https://assets'),
               episode.children[6].textContent.includes(".jpg")
                 ? episode.children[6].textContent.indexOf(".jpg") + 4
                 : episode.children[6].textContent.includes(".png")
