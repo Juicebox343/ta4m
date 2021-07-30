@@ -1,45 +1,30 @@
-import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import Player from "./Player";
 
-const Header = ({latestEpisode}) => {
-  const podcastPlayer = useRef();
-  const [isEzri, setIsEzri] = useState(false);
-
-
-  const playPodcast = () => {
-    isEzri ? podcastPlayer.current.play() : podcastPlayer.current.pause();
-  }
-
-  useEffect(playPodcast, [isEzri])
-
+const Header = ({ activeEpisode, isPlaying, playToggle }) => {
   return (
     <>
-      <header className='hero'>
+      <header className="hero">
         <div
-          className='banner'
+          className="banner"
           style={
-            isEzri
-              ? { backgroundImage: 'url(/ezri.gif)' }
-              : { backgroundImage: 'url(/4mics-1920.png)' }
+            isPlaying
+              ? { backgroundImage: "url(/ezri.gif)" }
+              : { backgroundImage: "url(/4mics-1920.png)" }
           }
         ></div>
-        <div className='titles'>
+        <div className="titles">
           <h1>There Are Four Mics</h1>
-          <span className='separator'></span>
+          <span className="separator"></span>
           <span>A Star Trek Podcast</span>
         </div>
-        <div>
-          <div className='fake-player'>
-            <audio src={latestEpisode.link} ref={podcastPlayer} />
-            <button
-              className='fake-play'
-              onClick={() => setIsEzri(!isEzri)}
-            ></button>
-            <span className='fake-title'>{latestEpisode.title}</span>
-          </div>
-          <div className='read-more'>
-            <Link to='/home'>Enter Site</Link>
-          </div>
+        <Player
+          activeEpisode={activeEpisode}
+          playToggle={playToggle}
+          isPlaying={isPlaying}
+        />
+        <div className="read-more">
+          <Link to="/home">Enter Site</Link>
         </div>
       </header>
     </>
