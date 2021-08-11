@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import About from "./Components/About";
+import Admin from "./Components/Admin";
 import Articles from "./Components/Articles";
 import Landing from "./Components/Landing";
 import Main from "./Components/Main";
@@ -28,6 +29,7 @@ function App() {
       .then((data) => {
         const episodes = data.querySelectorAll("item");
         const episodeArray = [];
+        console.log(episodes)
         episodes.forEach((episode) => {
           const episodeDetails = {
             title: episode.children[0].textContent,
@@ -83,6 +85,9 @@ function App() {
                 </Route>
                 <Route exact path="/podcasts">
                   <Main episodes={episodes} />
+                </Route>
+                <Route exact path="/admin">
+                  <Admin/>
                 </Route>
                 <Route
                   path="/posts/:id"
